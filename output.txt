@@ -1,0 +1,9 @@
+
+Log Level Counts:
+INFO: 46
+WARN: 23
+
+Total Processed Logs: 69
+
+Unique Users: ['userID: 11223', 'userID: 12345', 'userID: system', 'userID: 55555', 'userID: 99999', 'userID: 67890', 'userID: 77777', 'userID: 98765', 'userID: 66666', 'userID: 88888', 'userID: 54321']
+Processing time: 9.012222290039062e-05 seconds
