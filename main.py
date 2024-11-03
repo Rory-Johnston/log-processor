@@ -4,15 +4,18 @@ import time
 from utils import validate_file, validate_log_levels
 
 def main():
+    # parse arguments from the command line
     parser = argparse.ArgumentParser(description='Process log file.')
     parser.add_argument('--file', type=str, required=True, help='The log file to process.')
     parser.add_argument('--level', type=str, help='The logging levels to filter, comma-separated.')
     parser.add_argument('--output', type=str, help='Optional output file to write the summary.')
     args = parser.parse_args()
 
+    # validate that the file exists, is infact a file and is readable
     if not validate_file(args.file):
         return
-
+    
+    # validate that the inputted log level filter is proper
     if args.level:
         levels = [level.strip().upper() for level in args.level.split(',')]
         if not validate_log_levels(levels):
@@ -28,6 +31,7 @@ def read_file(file_path, log_levels, output_file=None):
     log_level_counts = {}
     unique_users = set()
 
+    # open the file and for every line, parse the text
     with open(file_path, 'r') as file:
         for line in file:
             raw_line = line.strip()
